@@ -1,0 +1,215 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#main{
+    height: 100%;
+    width: 100%;
+}
+
+#navbar{
+    justify-content: space-around;
+    position: fixed;
+    height: 13%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: antiquewhite;
+    color: #032D60;
+}
+
+#logo{
+    height: 50%;
+    padding: 30px;
+}
+
+.navitem:hover{
+    color: lightblue;
+}
+
+#contact{
+    text-align: center;
+    font-weight: 400;
+}
+
+#search{
+    font-size: 20px;
+    padding: 10px;
+}
+
+#search:hover{
+    background-color: lightblue;
+    border-radius: 50%;
+}
+
+#global{
+    padding: 10px;
+    font-size: 20px;
+}
+
+#global:hover{
+    background-color: lightblue;
+    border-radius: 50%;
+}
+
+#login{
+    display: flex;   
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#login:hover{
+    background-color: lightblue;
+    border-radius: 50px;
+}
+
+#try{
+    color: white;
+    padding: 12px 25px;
+    background-color: green;
+}
+
+#try:hover{
+    background-color: rgb(0, 51, 0);
+}
+
+#fakeHeader{
+    height: 13vh;
+    width: 100%;
+}
+
+#page1{
+    height: 87vh;
+    width: 100%;
+}
+
+#page2{
+    height: 87vh;
+    width: 100%;
+    background-color: brown;
+}
+
+#strip{
+    background-color: #140075;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    height: 8%;
+
+}
+#strip img{
+    height: 24px;
+    padding: 20px;
+    margin-top: 5px;
+}
+
+#strip h4{
+    font-size: 17px;
+}
+#strip p{
+    padding: 20px;
+}
+
+#content{
+    display: flex;
+    height: 76%;
+}
+
+
+
+#content{
+    margin: 20px;
+}
+
+#box1{
+    height: 100%;
+    width: 50%;
+    margin-left: 110px;
+    margin-top: 30px;
+    
+}
+
+#starter h1{
+    font-size: 53px;
+    color: #032D60;
+}
+
+#box1 p{
+    font-size: 20px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+#buttons{
+    display: flex;
+    margin-top: 50px;
+}
+
+#trial{
+    width: 110px;
+    height: 30px;
+    background-color: #225dd4;
+    padding: 10px 20px;
+    color: white;
+    align-content: center;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+#trial:hover{
+    background-color: rgb(0, 66, 88);
+}
+
+#demo{
+    width: 110px;
+    height: 30px;
+    background-color: white;
+    padding: 10px 20px;
+    color: #225dd4;
+    border: 2px solid #225dd4;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-weight: 500;
+    margin-left: 30px;
+    border-radius: 4px;
+}
+
+#demo:hover{
+    background-color: rgba(117, 143, 152, 0.126);
+    color: #022365;
+    border-color: #022365;
+}
+
+#box2{
+    width: 50%;
+    height: 100%;
+    margin-left: 48px;
+    margin-top: 20px;
+}
+
+#card{
+    width: 97%;
+    height: 70%;
+    border-radius: 18px;
+    margin-top: 65px;
+    overflow: hidden;
+}
+
+#footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:x-large;
+    color: #022365;
+}
