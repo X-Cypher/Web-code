@@ -45,4 +45,12 @@
 //      name = "arj"
 // }
 
+// let a = null
+// let b = Boolean(a)
+// console.log(typeof(b));
+// console.log(b);
+
+
+
+
 
