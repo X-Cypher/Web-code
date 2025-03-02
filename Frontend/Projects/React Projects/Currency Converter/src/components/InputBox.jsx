@@ -15,8 +15,7 @@ function InputBox({
                 <label  className="text-black/40 mb-2 inline-block">
                     {label}
                 </label>
-                <input
-                    
+                <input                    
                     className="outline-none w-full bg-transparent py-1.5"
                     type="number"
                     placeholder="Amount"
