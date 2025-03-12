@@ -36,6 +36,7 @@ class File {
             console.log("Appwrite service :: deleteFile :: error :: ", error)
         }
     }
+    
     // we did not use async await here because getFilePreview function does not return a promise (according to the documentation)
     getFilePreview(fileId){
         try {
