@@ -9,7 +9,7 @@ import {useForm} from 'react-hook-form'
 function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {register, handleSubmit} = useForm() //useForm is a hook provided by react-hook-form to manage form state
+    const {register, handleSubmit} = useForm() //useForm is a hook provided by react-hook-form to manage form state, handleSubmit is keyword to submit the form (event h ye)
     const [error, setError] = useState('')
 
     const loginUser = async(data) => {
@@ -19,7 +19,7 @@ function Login() {
             if(session){
                 const userData = await authService.getCurrentUser()
                 if(userData){
-                    dispatch(login(userData))
+                    dispatch(login(userData)) //dispatch means to send the data to the store and update the state
                     navigate('/') //agar login ho gya toh home page pe le jao
                 }
             }
@@ -58,16 +58,16 @@ function Login() {
                 </p>
             }
 
-            <form onSubmit={handleSubmit(loginUser)} className='mt-8'>
+            <form onSubmit={handleSubmit(loginUser)} className='mt-8'>  
                 <div className='space-y-5'>
                     <Input 
                         label= 'Email'
                         placeholder = 'Enter your email'
                         type='email'
-                        {...register('email',{
+                        {...register('email',{ //link the email input to the 'email' field in the form. This is important step. we have set the key as 'email' in the form
                             required: true,
                             validate:{
-                                matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.
+                                matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/. 
                                 test(value) || 'Please enter a valid email'
                             }
                             })

@@ -81,7 +81,7 @@ function SignUp() {
                         label='Password'
                         placeholder='Enter your password'
                         type='password'
-                        {...register('password',{  //link the password input to the password field in the form. This is important step. we have set the key as password in the form
+                        {...register('password',{  
                             required: true,
                             minLength: 8,
                             maxLength: 20,
