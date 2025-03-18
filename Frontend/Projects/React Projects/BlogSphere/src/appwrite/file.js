@@ -50,5 +50,5 @@ class File {
     }
 }
 
-const file = new File()
-export default file
+const fileService = new File()
+export default fileService

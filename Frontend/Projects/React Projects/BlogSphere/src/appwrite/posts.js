@@ -32,6 +32,7 @@ class Posts{
         }
     }
 
+    //slug is the id of post
     async updatePost(slug, {title, content, featuredImage, status}){
         try {
             return await this.databases.updateDocument(
@@ -103,5 +104,5 @@ class Posts{
     }
 }
 
-const posts = new Posts()
-export default posts
+const postService = new Posts()
+export default postService

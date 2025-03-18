@@ -2,16 +2,16 @@ import React from 'react'
 import {Editor} from '@tinymce/tinymce-react'
 import { Controller } from 'react-hook-form'
 
-export default function RTE({name, control, label, defaultValue =""}) {
+export default function RTE({name, control, label, defaultValue =""}) { //control is responsible to transfer the data(State) from the RTE to the react-hook-form.
   return (
     <div className='w-full'>
         {label && <label className='inline-block mb-1 pl-1'>
             {label}
         </label>}
 
-        <Controller
+        <Controller //controller is used to integrate the RTE with react-hook-form.
             name={name}
-            control={control}
+            control={control} //control will give control to the parent component to handle the data. Here the parent component will be our postform, editform, etc.
             render={({field: {onChange}}) => (
                  <Editor 
                     initialValue={defaultValue}
