@@ -7,7 +7,7 @@ import fileService from '../../appwrite/file'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-function PostForm({post}) {
+export default function PostForm({post}) {
     const {register, handleSubmit, watch, setValue, control, getValues} = useForm({
         defaultValues:{ //ye edit form mai values show karne ke liye default values le li hai post ki.
             title: post?.title || '', //if post title is available, use it, otherwise use empty string
@@ -62,16 +62,16 @@ function PostForm({post}) {
     }, [])
 
     useEffect(() => {
-      const subscription = watch((value, {name}) => {
-        if(name === 'title'){
+      const subscription = watch((value, {name}) => { //value contains value of all the fields and name is the namae of the field that is changed
+        if(name === 'title'){ //agar title field change hota hai to slug field ko update karna hai
           setValue('slug', generateSlug(value.title), {shouldValidate: true})
         }
       })
-      return () => subscription.unsubscribe()
+      return () => subscription.unsubscribe() //unsubscribe to avoid memory leaks
     }, [watch, generateSlug, setValue])
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+    <form onSubmit={handleSubmit(submitPost)} className="flex flex-wrap">
         <div className="w-2/3 px-2">
             <Input
                 label="Title :"
@@ -84,9 +84,7 @@ function PostForm({post}) {
                 placeholder="Slug"
                 className="mb-4"
                 {...register("slug", { required: true })}
-                onInput={(e) => {
-                    setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
-                }}
+                readonly = {true}
             />
             <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
         </div>
@@ -101,7 +99,7 @@ function PostForm({post}) {
             {post && (
                 <div className="w-full mb-4">
                     <img
-                        src={appwriteService.getFilePreview(post.featuredImage)}
+                        src={fileService.getFilePreview(post.featuredImage)}
                         alt={post.title}
                         className="rounded-lg"
                     />
@@ -120,5 +118,3 @@ function PostForm({post}) {
     </form>
   )
 }
-
-export default PostForm
