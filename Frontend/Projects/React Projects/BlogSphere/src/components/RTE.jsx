@@ -1,6 +1,7 @@
 import React from 'react'
 import {Editor} from '@tinymce/tinymce-react'
 import { Controller } from 'react-hook-form'
+import conf from '../config variables/conf'
 
 export default function RTE({name, control, label, defaultValue =""}) { //control is responsible to transfer the data(State) from the RTE to the react-hook-form.
   return (
@@ -14,6 +15,7 @@ export default function RTE({name, control, label, defaultValue =""}) { //contro
             control={control} //control will give control to the parent component to handle the data. Here the parent component will be our postform, editform, etc.
             render={({field: {onChange}}) => (
                  <Editor 
+                    apiKey= {conf.tinyMCEApiKey}
                     initialValue={defaultValue}
                     init={{
                         initialValue: defaultValue,

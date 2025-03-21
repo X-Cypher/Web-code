@@ -12,7 +12,7 @@ function Input({
   return (
     <div className='w-full'>
         {label &&  // If label is given, then render the label
-            <label className='inline-block mb-1 pl-1' htmlFor={id}>
+            <label className='block mb-1 pl-1 text-left' htmlFor={id}>
                 {label}
             </label>
             }

@@ -71,8 +71,8 @@ export default function Post() {
                     </h1>
                 </div>
                 
-                <div>
-                    {parse(post.content)}
+                <div> {/* we have to parse the html content to react elements because RTE stores the content in HTML format */}
+                    {parse(post.content)} 
                 </div>
             </Container>
         </div>

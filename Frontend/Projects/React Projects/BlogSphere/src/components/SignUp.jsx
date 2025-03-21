@@ -26,6 +26,7 @@ function SignUp() {
             setError(error.message) 
         }
     }
+
   return (
     <div className="flex items-center justify-center">
         <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
@@ -40,7 +41,7 @@ function SignUp() {
                 Sign up to create account
             </h2>
 
-            <p className="mt-2 text-center text-base text-black/60">
+            <p className="mt-2 mb-4 text-center text-base text-black/60">
                 Already have an account?&nbsp;
                 <Link 
                     to={'/login'}
@@ -49,6 +50,7 @@ function SignUp() {
                     Sign In
                 </Link>
             </p>
+            
             {error && 
                 <p className='text-red-600 mt-8 text-center'>
                     {error}
@@ -92,10 +94,10 @@ function SignUp() {
                         })}
                     />
                     <Button
+                        btnText='Create Account'
                         type='submit'
                         className='w-full'
                     >
-                        Create Account
                     </Button>
                 </div>
             </form>

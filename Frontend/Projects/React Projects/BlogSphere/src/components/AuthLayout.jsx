@@ -15,7 +15,7 @@ export default function Protected({children}) {
             navigate('/login')
         }
         setLoading(false)
-    }, [authStatus, navigate, authentication])
+    }, [authStatus, navigate])
 
   return (
     loading ? <div>Loading...</div> : <>{children}</> //if loading is true then show loading else show children

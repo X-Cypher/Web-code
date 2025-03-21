@@ -83,11 +83,12 @@ function Login() {
                         })}
                     />
 
-                    <Button
+                    <Button 
+                        btnText="Sign In"
                         type='submit'
                         className='w-full'
                     >
-                        Sign In
+
                     </Button>
                 </div>
             </form>

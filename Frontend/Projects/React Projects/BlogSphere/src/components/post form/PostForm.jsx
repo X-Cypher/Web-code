@@ -84,7 +84,7 @@ export default function PostForm({post}) {
                 placeholder="Slug"
                 className="mb-4"
                 {...register("slug", { required: true })}
-                readonly = {true}
+                readOnly = {true}
             />
             <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
         </div>
