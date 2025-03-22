@@ -11,7 +11,7 @@ export default function PostForm({post}) {
     const {register, handleSubmit, watch, setValue, control, getValues} = useForm({
         defaultValues:{ //ye edit form mai values show karne ke liye default values le li hai post ki.
             title: post?.title || '', //if post title is available, use it, otherwise use empty string
-            slug: post?.slug || '',
+            slug: post?.$id || '',
             content: post?.content || '',
             status: post?.status || 'active'
         }
