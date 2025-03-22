@@ -12,9 +12,10 @@ function AllPosts() {
                 setPosts(response.documents)
             }
         })
-    })
+    }, [])
     
   return (
+    posts.length != 0 ?(
     <div className='w-full py-8'>
         <Container>
             <div className='flex flex-wrap'> 
@@ -27,7 +28,11 @@ function AllPosts() {
             </div>
         </Container>
     </div>
-  )
+  ) : (
+        <div className='w-full py-8 text-2xl'>
+            No Posts Found
+        </div>)
+) 
 }
 
 export default AllPosts

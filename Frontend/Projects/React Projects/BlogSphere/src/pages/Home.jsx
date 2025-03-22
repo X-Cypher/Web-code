@@ -6,7 +6,7 @@ import postService from '../appwrite/posts'
 function Home() {
     const [posts, setPosts] = useState([])
     useEffect(() => {
-        postService.getAllPosts()
+        postService.getActivePosts()
         .then((response) => {
             if(response){
                 setPosts(response.documents)

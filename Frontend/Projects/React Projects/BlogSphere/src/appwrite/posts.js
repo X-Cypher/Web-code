@@ -23,9 +23,9 @@ class Posts{
              {
                 title,
                 content,
-                featuredImage,
+                "featured-image" : featuredImage,
                 status,
-                userId
+                "user-id": userId
             })
         } catch (error) {
             console.log("Appwrite service :: createPost :: error :: ", error)
@@ -42,7 +42,7 @@ class Posts{
                 {
                     title,
                     content,
-                    featuredImage,
+                    'featured-image':featuredImage,
                     status
                 }
             )

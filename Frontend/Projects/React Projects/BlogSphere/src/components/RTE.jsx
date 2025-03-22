@@ -15,7 +15,7 @@ export default function RTE({name, control, label, defaultValue =""}) { //contro
             control={control} //control will give control to the parent component to handle the data. Here the parent component will be our postform, editform, etc.
             render={({field: {onChange}}) => (
                  <Editor 
-                    apiKey= {conf.tinyMCEApiKey}
+                    apiKey= "u63a0qcut069iwtv8judaqi1av9w7wtb6k9cxn51zj1cgx60"
                     initialValue={defaultValue}
                     init={{
                         initialValue: defaultValue,

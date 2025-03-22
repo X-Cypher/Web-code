@@ -24,7 +24,7 @@ export default function PostForm({post}) {
         const file = data.image[0] ? await fileService.uploadFile(data.image[0]): null
 
         if(file){ //if file is uploaded then delete the previous image
-          fileService.deleteFile(post.featured-image) //featured-image is the database column name in which image is stored
+          fileService.deleteFile(post['featured-image']) //featured-image is the database column name in which image is stored
         }
 
         const updatedPost = await postService.updatePost(post.$id, { //post.$id/slug is the id of the post
@@ -82,7 +82,7 @@ export default function PostForm({post}) {
             <Input
                 label="Slug :"
                 placeholder="Slug"
-                className="mb-4"
+                className="cursor-not-allowed mb-4"
                 {...register("slug", { required: true })}
                 readOnly = {true}
             />
@@ -99,7 +99,7 @@ export default function PostForm({post}) {
             {post && (
                 <div className="w-full mb-4">
                     <img
-                        src={fileService.getFilePreview(post.featuredImage)}
+                        src={fileService.getFilePreview(post['featured-image'])}
                         alt={post.title}
                         className="rounded-lg"
                     />
@@ -111,8 +111,10 @@ export default function PostForm({post}) {
                 className="mb-4"
                 {...register("status", { required: true })}
             />
-            <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
-                {post ? "Update" : "Submit"}
+            <Button 
+              btnText = {post ? "Update" : "Submit"}
+              type="submit" bgColor={post ? "bg-green-500" : undefined}
+              className="w-full">   
             </Button>
         </div>
     </form>

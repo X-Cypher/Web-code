@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import postService from '../appwrite/posts'
 
 function EditPost() {
-  const [post, setPost] = useState({})
+  const [post, setPost] = useState(null)
   const {slug} = useParams() //useParams is a hook that gives us values of the parameters in the URL
   const navigate = useNavigate()
 

@@ -13,7 +13,7 @@ export default function Post() {
 
     const userData = useSelector((state) => state.auth.userData)
 
-    const isAuthor = post.user-id === userData.$id //check if current user is the author of the post
+    const isAuthor = post && userData ? post["user-id"] === userData.$id : false //check if current user is the author of the post
 
     useEffect(() => {
         if(slug){
@@ -34,7 +34,7 @@ export default function Post() {
         postService.deletePost(post.$id)
         .then((status) => {
             if(status){
-                fileService.deleteFile(post.featured-image)
+                fileService.deleteFile(post["featured-image"])
                 navigate('/')
             }
         })
@@ -47,20 +47,16 @@ export default function Post() {
                 <div className='w-full flex justify-center mb-4 relative border rounded-xl p-2'>
                     <img 
                         className='rounded-xl'
-                        src={fileService.getFilePreview(post.featured-image)} 
+                        src={fileService.getFilePreview(post["featured-image"])} 
                         alt={post.title} 
                     />
 
                     {isAuthor && ( //if current user is the author of the post, show edit and delete button
                         <div className='absolute right-6 top-6'>
-                            <Link to= {`/edit/${post.$id}`}>
-                                <Button bgColor='bg-green-500' className='mr-3'>
-                                    Edit
-                                </Button>
+                            <Link to= {`/edit-post/${post.$id}`}>
+                                <Button btnText="Edit" bgColor='bg-green-500' className='mr-3' />
                             </Link>
-                            <Button bgColor='bg-red-500' onClick={deletePost}>
-                                Delete
-                            </Button>
+                            <Button btnText="Delete" bgColor='bg-red-500' onClick={deletePost} />
                         </div>
                     )}
                 </div>
