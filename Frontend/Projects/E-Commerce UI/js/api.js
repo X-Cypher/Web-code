@@ -1,5 +1,3 @@
-import { BASE_URL } from './const.js';
-
 const url = BASE_URL + '/products';
 
 async function loadProducts() {
@@ -16,22 +14,34 @@ async function loadProducts() {
         electronicsList.innerHTML = '';
 
         products.forEach(product => {
-            let productCard = `
-                <div class="col-lg-4 col-md-6">
+            
+            let productCard = 
+                `<div class="col-lg-4 col-md-6">
                     <div class="card h-100">
                         <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">${product.name}</h5>
                             <p class="card-text">${product.description}</p>
-                            <p class="price"> <strong>₹${product.price}</strong> </p>
-                            <button class="btn btn-primary mt-auto" onclick="addToCart(${product.id})">Add to Cart</button>
+                            <p class="price"><strong>₹${product.price}</strong></p>
+                            <button class="btn btn-primary mt-auto" onclick="addToCart(${product.id}, '${product.name}', ${product.price}, '${product.imageUrl}')">
+                                Add to Cart
+                            </button>
+                        </div>
                     </div>
-                `
+                </div>`;
+            
+                if(product.catagory === "Clothing") {
+                    clothingList.innerHTML += productCard;
+                } else if(product.catagory === "Electronics") {
+                    electronicsList.innerHTML += productCard;
+                } else{
+                    trendingList.innerHTML += productCard;
+                }
+            
         });
 
     } catch (error) {
         console.log("Error in fetching products: ", error);
-        
     }
     
 }
