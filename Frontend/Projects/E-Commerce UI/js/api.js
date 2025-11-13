@@ -4,6 +4,7 @@ async function loadProducts() {
     try {
         const response = await fetch(url);
         const products = await response.json();
+        
 
         let trendingList = document.getElementById('trending-products');
         let clothingList = document.getElementById('clothing-products');
@@ -30,9 +31,9 @@ async function loadProducts() {
                     </div>
                 </div>`;
             
-                if(product.catagory === "Clothing") {
+                if(product.category === "Clothing") {
                     clothingList.innerHTML += productCard;
-                } else if(product.catagory === "Electronics") {
+                } else if(product.category === "Electronics") {
                     electronicsList.innerHTML += productCard;
                 } else{
                     trendingList.innerHTML += productCard;
